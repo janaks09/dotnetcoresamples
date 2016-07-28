@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.Swagger.Model;
+using SwaggerSample.Infrastructure.Swagger;
 
 namespace SwaggerSample
 {
@@ -55,6 +56,7 @@ namespace SwaggerSample
                 });
 
                 options.IncludeXmlComments(swaggerCommentXmlPath); //Includes XML comment file
+                options.OperationFilter<FileOperation>();
                 options.DescribeAllEnumsAsStrings();
             });
         }
