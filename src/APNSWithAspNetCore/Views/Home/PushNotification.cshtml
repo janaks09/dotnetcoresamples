@@ -1,0 +1,35 @@
+@using APNSWithAspNetCore.ViewModels
+@model Notification
+
+@{
+    ViewData["Title"] = "Notification Service";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <form asp-controller="Home" asp-action="PushNotification" method="post" class="form-horizontal">
+                <h4>Prepare Message.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input asp-for="DeviceId" class="form-control" placeholder="Enter Device Id" />
+                        <span asp-validation-for="DeviceId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input asp-for="Message" class="form-control" placeholder="Enter Message" />
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default">Send</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
