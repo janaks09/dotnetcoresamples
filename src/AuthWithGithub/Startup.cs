@@ -43,7 +43,7 @@ namespace AuthWithGithub
         {
 
             services.AddAuthentication(options => {
-                options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.SignInScheme = GitHubAuthenticationDefaults.AuthenticationScheme;
             });
 
 
@@ -81,14 +81,6 @@ namespace AuthWithGithub
             }
 
             app.UseStaticFiles();
-
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationScheme = GitHubAuthenticationDefaults.AuthenticationScheme ,
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true
-            });
-
 
             app.UseIdentity();
 
